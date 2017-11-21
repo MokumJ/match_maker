@@ -4,32 +4,37 @@ class ProfilesController < ApplicationController
 
   def index
     @profiles = Profile.all.order(:role , :first_name)
-    render json: @profiles
-
+    
   end
 
   def show
     @profile = Profile.find(params[:id])
   end
 
+  def new
+     @profile = Profile.new
+   end
+  def create
+      @profile = current_user.build_profile(profile_params)
+
+    if @profile.save
+      redirect_to edit_profile_path(@profile), notice: "Profile successfully created"
+
+    else
+      render :new
+    end
+  end
   def change_status
     @profile = Profile.find(params[:id])
 
-    if @profile.role == "student" 
+    if @profile.role == "student"
       @profile.role = "admin"
       @profile.save
-      respond_to do |format|
-        format.html { redirect_to root_path }
-        format.json { render json: @profile }
-      end
+
     else
       @profile.role = "student"
       @profile.save
 
-      respond_to do |format|
-        format.html { redirect_to root_path }
-        format.json { render json: @profile }
-      end
     end
   end
 
