@@ -4,7 +4,7 @@
   <tr>
     <td> <%= profile.full_name %></td>
     <td> <%= profile.role %></td>
-
+      <td> <%= button_to "Make Admin", {action: "make_admin", id: profile.user.id }, method: :put %></td>
   </tr>
 <% end %>
 </table>

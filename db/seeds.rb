@@ -16,4 +16,3 @@ profile5 =  Profile.create!(first_name:"profile5", last_name:"last name", role:"
 profile6 =  Profile.create!(first_name:"profile6", last_name:"last name", role:"student", user:user6)
 profile7 =  Profile.create!(first_name:"profile7", last_name:"last name", role:"student", user:user7)
 profile8 =  Profile.create!(first_name:"profile8", last_name:"last name", role:"student", user:user8)
-
