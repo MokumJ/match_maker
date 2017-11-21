@@ -1,6 +1,6 @@
-class CreateCalendars < ActiveRecord::Migration[5.1]
+class CreatePairs < ActiveRecord::Migration[5.1]
   def change
-    create_table :calendars do |t|
+    create_table :pairs do |t|
       t.date :day
       t.string :pairs, array: true, default: []
 
