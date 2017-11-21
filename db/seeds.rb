@@ -8,7 +8,7 @@ user7 = User.create!(email:"bom3@gmail.com", password:"123456")
 user8 = User.create!(email:"bam4@gmail.com", password:"123456")
 
 profile1 = Profile.create!(first_name:"ma", last_name:"la", role:"student", user:user1)
-profile2 =  Profile.create!(first_name:"katinka", last_name:"go", role:"admin", user:user2)
+profile2 =  Profile.create!(first_name:"ka", last_name:"go", role:"admin", user:user2)
 profile3 =  Profile.create!(first_name:"wo", last_name:"wi", role:"admin", user:user3)
 profile4 =  Profile.create!(first_name:"ma", last_name:"mi", role:"student", user:user4)
 profile5 =  Profile.create!(first_name:"ma", last_name:"sha", role:"student", user:user5)
