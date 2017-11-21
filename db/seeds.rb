@@ -1,7 +1,17 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+user1 = User.create!(email:"mala12@gmail.com", password:"123456")
+user2 = User.create!(email:"raka1@gmail.com", password:"123456")
+user3 = User.create!(email:"wiki1@gmail.com", password:"123456")
+user4 = User.create!(email:"woush4@gmail.com", password:"123456")
+user5 = User.create!(email:"wal1@gmail.com", password:"123456")
+user6 = User.create!(email:"bal2@gmail.com", password:"123456")
+user7 = User.create!(email:"bom3@gmail.com", password:"123456")
+user8 = User.create!(email:"bam4@gmail.com", password:"123456")
+
+profile1 = Profile.create!(first_name:"ma", last_name:"la", role:"student", user:user1)
+profile2 =  Profile.create!(first_name:"katinka", last_name:"go", role:"admin", user:user2)
+profile3 =  Profile.create!(first_name:"wo", last_name:"wi", role:"admin", user:user3)
+profile4 =  Profile.create!(first_name:"ma", last_name:"mi", role:"student", user:user4)
+profile5 =  Profile.create!(first_name:"ma", last_name:"sha", role:"student", user:user5)
+profile6 =  Profile.create!(first_name:"romy", last_name:"mari", role:"student", user:user6)
+profile7 =  Profile.create!(first_name:"wicki", last_name:"pdia", role:"student", user:user7)
+profile8 =  Profile.create!(first_name:"lol", last_name:"ig", role:"student", user:user8)
