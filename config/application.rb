@@ -14,7 +14,7 @@ require "sprockets/railtie"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
-require 'round_robin_tournament'
+require "round_robin_tournament"
 
 Bundler.require(*Rails.groups)
 

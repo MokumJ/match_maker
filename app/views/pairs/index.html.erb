@@ -1,0 +1,8 @@
+<h1>Show all pair combination</h1>
+
+<ul>
+<% @pairs.each_with_index do |day, index| %>
+	<% day_pairs = day.map {|pair| "(#{pair.first}, #{pair.last})"}.join(", ") %>
+	<li><%= "Day #{index + 1}: #{day_pairs}" %></li>
+	<% end %>
+</ul>
