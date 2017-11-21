@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @profiles = Profile.all.order(:role , :first_name)
+    @profiles = Profile.all.order(:role, :first_name)
 
   end
 
