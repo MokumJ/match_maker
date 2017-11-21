@@ -1,0 +1,13 @@
+<div class="panel panel-primary">
+  <div class="panel-heading"><h1><%= @profile.full_name %></h1></div>
+
+  <div class="panel-body">
+
+      <% if @profile && @profile.student? %>
+      <%=render 'showstudent'%>
+      <% else %>
+     <%= render 'showadmin'%>
+      <% end %>
+
+  </div>
+</div>

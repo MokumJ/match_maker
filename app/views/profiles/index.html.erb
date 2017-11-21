@@ -1,0 +1,10 @@
+<table class="table">
+<% @profiles.each do |profile| %>
+
+  <tr>
+    <td> <%= profile.full_name %></td>
+    <td> <%= profile.role %></td>
+
+  </tr>
+<% end %>
+</table>
