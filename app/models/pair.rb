@@ -1,9 +1,6 @@
-require "profile.rb"
+require_relative "profile.rb"
 
 class Pair < ApplicationRecord
+before_action :set_students_array
 
-	def self.make_pairs
-		Profile.select_students_from_profiles
-		@pairs = RoundRobinTournament.schedule(@students)
-	end
 end
