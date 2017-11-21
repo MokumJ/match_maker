@@ -1,16 +1,17 @@
 class Profile < ApplicationRecord
   belongs_to :user
 
-	def full_name
-		"#{first_name} #{last_name}"
-	end
+  def full_name
+"#{first_name} #{last_name}"
+end
 
-	def set_students_array
-		@students = []
-		profiles = Profile.all
-		profiles.each do |profile|
-				@students <<  profile.first_name if profile.role == "student"
-		end
-	end
+def self.select_students_from_profiles
+  @students = where(role: "student")
+end
 
+def make_admin
+  profile = Profile.find params[:id]
+  profile.update( :role => "admin" )
+  redirect_to profiles_url
+end
 end

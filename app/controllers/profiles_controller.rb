@@ -37,6 +37,11 @@ class ProfilesController < ApplicationController
 
     end
   end
+  def make_admin
+    profile = Profile.find params[:id]
+    profile.update( :role => "admin" )
+    redirect_to profiles_url
+  end
   def edit
  end
 
