@@ -4,7 +4,7 @@ class ProfilesController < ApplicationController
 
   def index
     @profiles = Profile.all.order(:role, :first_name)
-
+      redirect_to profiles_path if current_user.profile.role == "admin"
   end
 
   def show
