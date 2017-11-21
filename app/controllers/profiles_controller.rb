@@ -4,7 +4,7 @@ class ProfilesController < ApplicationController
 
   def index
     @profiles = Profile.all.order(:role , :first_name)
-    
+
   end
 
   def show
@@ -37,6 +37,8 @@ class ProfilesController < ApplicationController
 
     end
   end
+  def edit
+ end
 
   def update
     if @profile.update(profile_params)
