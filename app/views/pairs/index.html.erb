@@ -5,10 +5,14 @@
 		<th>Day</th>
 		<th>Pairs of the day</th>
 	</tr>
-	<% @schedule.each do |day, pairs| %>
+	<% @pairs_schedule.each do |day| %>
 	<tr>
-		<td><%= Date.today + day %></td>
-		<td><%= pairs %></td>
+		<td><%= day.day %></td>
+		<td><%= day.pairs %></td>
 	</tr>
+
 	<% end %>
+
 </table>
+
+	<%= button_to "auto generate", save_into_db_path %>
