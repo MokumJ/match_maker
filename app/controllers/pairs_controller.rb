@@ -1,17 +1,8 @@
 class PairsController < ApplicationController
 
 	def index
-		generate_pairs_and_save_into_db
-		@pairs = Pair.all
-	end
-
-	def generate_pairs_and_save_into_db
-		Pair.all.destroy_all
 		set_students_array
-		pairs = round_robin(@students)
-		for i in 0...pairs.length
-			Pair.create!(day: (Date.today + i), pairs: pairs[i])
-		end
+		@schedule = Pairing.new(@students).days
 	end
 
 	def create
@@ -23,9 +14,6 @@ class PairsController < ApplicationController
 		params.require(:pair).permit(:day, :pairs)
 
 	end
-	def round_robin(array)
-		RoundRobinTournament.schedule(array)
-	end
 
 	def set_students_array
 		@students = []
@@ -34,4 +22,5 @@ class PairsController < ApplicationController
 				@students <<  profile.first_name if profile.role == "student"
 		end
 	end
+
 end
