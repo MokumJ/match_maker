@@ -4,7 +4,7 @@ class ProfilesController < ApplicationController
 
   def index
     @profiles = Profile.all.order(:role, :first_name)
-      redirect_to profiles_path if current_user.profile.role == "admin"
+
   end
 
   def show
@@ -40,6 +40,12 @@ class ProfilesController < ApplicationController
   def make_admin
     profile = Profile.find params[:id]
     profile.update( :role => "admin" )
+    redirect_to profiles_url
+  end
+
+  def make_student
+    profile = Profile.find params[:id]
+    profile.update( :role => "student" )
     redirect_to profiles_url
   end
   def edit
