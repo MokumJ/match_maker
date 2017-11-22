@@ -8,14 +8,8 @@ class PairsController < ApplicationController
 	def index
 		set_students_array
 
-	end
-
-	def generate_pairs_and_save_into_db
-		set_students_array
-		pairs = initialize_students(@students)
-		for i in 0...pairs.length
-			Pair.create!(day: (Date.today + i), pairs: pairs[i])
-		end
+		@schedule = Pairing.new(@students).days
+r
 	end
 
 	def create
@@ -59,3 +53,8 @@ end
 				@students <<  profile.first_name if profile.role == "student"
 		end
 	end
+
+
+
+end
+
