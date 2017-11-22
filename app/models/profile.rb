@@ -5,9 +5,7 @@ class Profile < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
-def self.select_students_from_profiles
-  @students = where(role: "student")
-end
+
 
 def make_admin
   profile = Profile.find params[:id]
