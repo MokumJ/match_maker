@@ -2,10 +2,12 @@ class ProfilesController < ApplicationController
 	before_action :set_profile, only: [:edit, :update, :show]
 	before_action :authenticate_user!
 
-	def index
-		@profiles = Profile.all.order(:role, :first_name)
-			# redirect_to profiles_path if current_user.profile.role == "admin"
-	end
+
+  def index
+    @profiles = Profile.all.order(:role, :first_name)
+
+  end
+
 
 	def show
 		@profile = Profile.find(params[:id])
@@ -25,25 +27,22 @@ class ProfilesController < ApplicationController
 		end
 	end
 
-	def change_status
-		@profile = Profile.find(params[:id])
 
-		if @profile.role == "student"
-			@profile.role = "admin"
-			@profile.save
+  def make_admin
+    profile = Profile.find params[:id]
+    profile.update( :role => "admin" )
+    redirect_to profiles_url
+  end
 
-		else
-			@profile.role = "student"
-			@profile.save
+  def make_student
+    profile = Profile.find params[:id]
+    profile.update( :role => "student" )
+    redirect_to profiles_url
+  end
+  
+  def edit
+  end
 
-		end
-	end
-
-	def make_admin
-		profile = Profile.find params[:id]
-		profile.update( :role => "admin" )
-		redirect_to profiles_url
-	end
 
 	def edit
 	end

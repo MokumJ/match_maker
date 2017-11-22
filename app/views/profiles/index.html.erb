@@ -4,11 +4,11 @@
 
   <div class="panel-body">
 
-      <% if @profile && @profile.admin? %>
-      <<%= render 'admin'%>
-      <% else %>
-     <%= render 'student'%>
-      <% end %>
+    <% if current_user.profile.role == "admin" %>
+    <%= render 'admin'%>
+    <% else %>
+    <%= render 'student'%>
+    <% end %>
 
   </div>
 </div>
