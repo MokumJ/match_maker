@@ -24,19 +24,7 @@ class ProfilesController < ApplicationController
       render :new
     end
   end
-  def change_status
-    @profile = Profile.find(params[:id])
 
-    if @profile.role == "student"
-      @profile.role = "admin"
-      @profile.save
-
-    else
-      @profile.role = "student"
-      @profile.save
-
-    end
-  end
   def make_admin
     profile = Profile.find params[:id]
     profile.update( :role => "admin" )
