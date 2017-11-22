@@ -7,7 +7,7 @@
 	</tr>
 	<% @schedule.each do |day, pairs| %>
 	<tr>
-		<td><%= day %></td>
+		<td><%= Date.today + day %></td>
 		<td><%= pairs %></td>
 	</tr>
 	<% end %>
