@@ -1,5 +1,8 @@
 class PagesController < ApplicationController
   def home
-		redirect_to pairs_path if current_user.profile.role == "admin"
+		unless current_user.profile == nil || current_user.profile.role == "student"
+			redirect_to pairs_path
+		end
+
   end
 end
