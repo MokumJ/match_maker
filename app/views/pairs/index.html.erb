@@ -5,10 +5,10 @@
 		<th>Day</th>
 		<th>Pairs of the day</th>
 	</tr>
-	<% @pairs.each do |pair| %>
+	<% @schedule.each do |day, pairs| %>
 	<tr>
-		<td><%= "#{pair.day}" %></td>
-		<td><%= "#{pair.pairs.each {|pair| print "(" + pair.to_s + ")" }}" %></td>
+		<td><%= day %></td>
+		<td><%= pairs %></td>
 	</tr>
 	<% end %>
 </table>
