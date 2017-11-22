@@ -1,11 +1,22 @@
 class PairsController < ApplicationController
+		before_action :set_students_array
 
 	def index
-		set_students_array
-		@schedule = Pairing.new(@students).days
+		@pairs_schedule = Pair.all
 	end
 
 	def create
+		save_into_db
+		redirect_to pairs_path
+	end
+
+	def save_into_db
+		Pair.all.destroy_all
+		set_students_array
+		@schedule = Pairing.new(@students).days
+		@schedule.each do |day, pairs|
+			Pair.create!(day: Date.today + day, pairs: pairs)
+		end
 	end
 
 	private
