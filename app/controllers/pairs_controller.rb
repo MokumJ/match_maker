@@ -1,8 +1,8 @@
 class PairsController < ApplicationController
 
 	def index
-		set_students_array
-		@pairs = RoundRobinTournament.schedule(@students)
+		generate_pairs_and_save_into_db
+		@pairs = Pair.all
 	end
 
 	def generate_pairs_and_save_into_db
