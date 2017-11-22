@@ -6,6 +6,7 @@ class PairsController < ApplicationController
 	end
 
 	def generate_pairs_and_save_into_db
+		Pair.all.destroy_all
 		set_students_array
 		pairs = round_robin(@students)
 		for i in 0...pairs.length
