@@ -13,6 +13,7 @@ class PairsController < ApplicationController
 	def save_into_db
 		Pair.all.destroy_all
 		set_students_array
+
 		@schedule = Pairing.new(@students).days
 		@schedule.each do |day, pairs|
 			Pair.create!(day: Date.today + day, pairs: pairs)
@@ -30,7 +31,7 @@ class PairsController < ApplicationController
 		@students = []
 		profiles = Profile.all
 		profiles.each do |profile|
-				@students <<  profile.first_name if profile.role == "student"
+				@students <<  profile.full_name if profile.role == "student"
 		end
 	end
 
