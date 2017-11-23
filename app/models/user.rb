@@ -2,7 +2,7 @@ class User < ApplicationRecord
 	has_one :profile
 	devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
+         validates_presence_of :password, :email
   def has_profile?
         profile.present? && profile.persisted?
   end
