@@ -1,5 +1,10 @@
 require 'rails_helper'
 
+
+
+
+
+
 describe "Current profile viewing the list of profiles" do
   before { create profile }
 
@@ -8,7 +13,7 @@ describe "Current profile viewing the list of profiles" do
 
 
 
-  it "shows all users" do
+  it "shows all profiles" do
     visit profiles_url
 
     expect(page).to have_text( "admin")

@@ -30,7 +30,7 @@ class PairsController < ApplicationController
 		@students = []
 		profiles = Profile.all
 		profiles.each do |profile|
-				@students <<  profile.first_name if profile.role == "student"
+				@students <<  profile.full_name if profile.role == "student"
 		end
 	end
 
