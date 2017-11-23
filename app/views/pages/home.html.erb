@@ -10,7 +10,7 @@
 				<% if pair.include?(current_user.profile.full_name) %>
 					<tr>
 						<td><%= day.day %></td>
-						<td><%= pair %></td>
+						<td><%= pair.join(" & ") %></td>
 					</tr>
 				<% end %>
 			<% end %>

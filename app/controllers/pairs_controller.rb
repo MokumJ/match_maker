@@ -13,15 +13,13 @@ class PairsController < ApplicationController
 	def save_into_db
 		Pair.all.where("day >= :today", today: Date.today ).destroy_all
 		set_students_array
-
-
-
 		@students = @students.shuffle
 
 		@schedule = Pairing.new(@students).days
 		@schedule.each do |day, pairs|
 			Pair.create!(day: Date.today + day, pairs: pairs)
 		end
+		# byebug
 	end
 
 	private
