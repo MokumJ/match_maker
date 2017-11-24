@@ -18,12 +18,11 @@ def create_profiles
 end
 
 describe "see user list" do
-  let(:admin) { create :profile, first_name: 'robin', last_name: 'doe', role: 'admin' }
-  let(:student)  { create :profile, first_name: 'jesse', last_name: 'doe', role: 'student' }
-it "creates profiles" do
+
+it "creates profile" do
     sign_in
     create_profiles
-
+print page.html
    find('#navbar').click
    click_on 'User list'
     visit profiles_path
