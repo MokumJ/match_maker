@@ -17,6 +17,7 @@ class Pairing
 			pairs_of_the_day.times do |students_index|									# iterates for putting in pairs
 				@days[key] << [students[students_index], students.reverse[students_index]]     # insert an array of [students[0], students.reverse[0]], [students[1],[students.reverse[1]]...and so forth.
 			end
+
 			students = [students[0]] + students[1..-1].rotate(-1)     # round robin logic. Fix the position of students[0], and rotate the remainings.
 																																# students[-1] element comes into the position of student[1]
 		end
