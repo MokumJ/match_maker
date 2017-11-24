@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-	has_one :profile
+  has_one :profile, :dependent => :destroy, :inverse_of => :user
 	devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
          validates_presence_of :password, :email
