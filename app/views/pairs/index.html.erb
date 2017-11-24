@@ -2,9 +2,6 @@
 <h2>Here are the pairing schedule of students!</h2>
 
 <table class="table table-striped table-bordered">
-
-
-
 	<% @pairs_schedule.sort.each do |day| %>
 	<tr>
 		<td><%= day.day %></td>
@@ -15,4 +12,4 @@
 	<% end %>
 </table>
 
-	<%= button_to "auto generate", save_into_db_path %>
+<%= button_to "auto generate", save_into_db_path %>
