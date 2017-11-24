@@ -49,7 +49,7 @@ RSpec.configure do |config|
   #       # ...
   #     end
 
-  config.include Devise::TestHelpers, type: :controller
+
 
   config.include Warden::Test::Helpers
   config.include Rails.application.routes.url_helpers
