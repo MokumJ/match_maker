@@ -1,8 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe Profile, type: :model do
-    subject { described_class.new(first_name: "Robin", last_name: "Doe") }
-
+      describe "#full_name" do
+        it "is composed of first and last name" do
+          profile = build(:profile, first_name: "robin", last_name: "hood", role: 'admin')
+          expect(profile.full_name).to eq "robin hood"
+        end
+      end
+      describe "role" do
+        it "has a role" do
+          profile = build(:profile, first_name: "robin", last_name: "hood", role: 'admin')
+          expect(profile.role).to eq "admin"
+        end
+      end
 
 
       it "is not valid without a first_name" do
@@ -15,4 +25,3 @@ RSpec.describe Profile, type: :model do
         expect(subject).to_not be_valid
       end
     end
-  

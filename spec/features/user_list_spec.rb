@@ -17,10 +17,9 @@ def create_profiles
  click_button "Save"
 end
 
-describe "see user list" do
-  let(:admin) { create :profile, first_name: 'robin', last_name: 'doe', role: 'admin' }
-  let(:student)  { create :profile, first_name: 'jesse', last_name: 'doe', role: 'student' }
-it "creates profiles" do
+describe "show list of users" do
+
+it "creates profile" do
     sign_in
     create_profiles
 

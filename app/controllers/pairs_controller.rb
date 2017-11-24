@@ -1,5 +1,5 @@
 class PairsController < ApplicationController
-		before_action :set_students_array
+	before_action :set_students_array
 
 	def index
 		@pairs_schedule = Pair.all
@@ -12,14 +12,14 @@ class PairsController < ApplicationController
 
 	def save_into_db
 		Pair.all.where("day >= :today", today: Date.today ).destroy_all
-		set_students_array
+															# Destroy data that is from today
 		@students = @students.shuffle
-
+															# shuffle the array for randomizing the order
 		@schedule = Pairing.new(@students).days
 		@schedule.each do |day, pairs|
 			Pair.create!(day: Date.today + day, pairs: pairs)
 		end
-		# byebug
+		redirect_to pairs_path
 	end
 
 	private
@@ -29,11 +29,15 @@ class PairsController < ApplicationController
 	end
 
 	def set_students_array
-		@students = []
-		profiles = Profile.all
+		@students = []									# set students empty array
+		profiles = Profile.all 					# Profile.all because we specify
+		 																# role in the profile class
 		profiles.each do |profile|
-				@students <<  profile.partial_full_name if profile.role == "student"
+				@students <<  profile.full_name if profile.role == "student"
+																				# insert each Profile with role
+																				# student with full name
 		end
 	end
+
 
 end
