@@ -17,7 +17,7 @@ scenario "clicks on make student" do
   profile = FactoryGirl.create(:profile, first_name: "Robin", last_name: "Hood", role: "admin", user: @user)
 visit root_path
  log_in("jesja123@gmail.com", 'password')
-print page.html
+
   find('#navbar').click
   click_on 'User list'
    visit profiles_path
