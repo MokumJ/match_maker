@@ -5,7 +5,6 @@ class PairsController < ApplicationController
 	end
 
 	def create
-		save_into_db
 	end
 
 	def save_into_db
