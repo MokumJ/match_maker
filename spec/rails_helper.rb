@@ -51,7 +51,9 @@ RSpec.configure do |config|
   #     end
 
 
-
+  config.include Devise::Test::ControllerHelpers, type: :controller
+   config.include Devise::Test::ControllerHelpers, type: :view
+   
   config.include Warden::Test::Helpers
   config.include Rails.application.routes.url_helpers
   config.include Auth, type: :feature

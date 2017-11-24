@@ -10,7 +10,7 @@ it "allows a user to login" do
 
   fill_in 'Email', with: 'current@user.com'
   fill_in 'Password', with: 'password'
-  click_on 'Log in'
+
 
  end
 end
