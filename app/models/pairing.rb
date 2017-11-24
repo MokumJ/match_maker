@@ -9,7 +9,7 @@ class Pairing
 	private
 
 	def pairing(students)
-		students.push("No partner today!") if students.size.odd?		#adds one more value if we have odd number of student
+		students.push("*RUBBER DUCK*") if students.size.odd?		#adds one more value if we have odd number of student
 		days = students.size - 1
 		pairs_of_the_day = students.size / 2
 		days.times do |key|
