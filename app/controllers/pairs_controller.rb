@@ -10,6 +10,18 @@ class PairsController < ApplicationController
 		redirect_to pairs_path
 	end
 
+	def save_into_db
+		Pair.all.where("day >= :today", today: Date.today ).destroy_all
+															# Destroy data that is from today
+		@students = @students.shuffle
+															# shuffle the array for randomizing the order
+		@schedule = Pairing.new(@students).days
+		@schedule.each do |day, pairs|
+			Pair.create!(day: Date.today + day, pairs: pairs)
+		end
+		redirect_to pairs_path
+	end
+
 	private
 
 	def pairs_params
@@ -27,14 +39,5 @@ class PairsController < ApplicationController
 		end
 	end
 
-	def save_into_db
-		Pair.all.where("day >= :today", today: Date.today ).destroy_all
-															# Destroy data that is from today
-		@students = @students.shuffle
-															# shuffle the array for randomizing the order
-		@schedule = Pairing.new(@students).days
-		@schedule.each do |day, pairs|
-			Pair.create!(day: Date.today + day, pairs: pairs)
-		end
-	end
+
 end
