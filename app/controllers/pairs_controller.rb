@@ -19,21 +19,22 @@ class PairsController < ApplicationController
 		@schedule.each do |day, pairs|
 			Pair.create!(day: Date.today + day, pairs: pairs)
 		end
-		# byebug
 	end
 
 	private
 
 	def pairs_params
 		params.require(:pair).permit(:day, :pairs)
-
 	end
 
 	def set_students_array
-		@students = []
-		profiles = Profile.all
+		@students = []									# set students empty array
+		profiles = Profile.all 					# Profile.all because we specify
+		 																# role in the profile class
 		profiles.each do |profile|
 				@students <<  profile.full_name if profile.role == "student"
+																				# insert each Profile with role
+																				# student with full name
 		end
 	end
 
