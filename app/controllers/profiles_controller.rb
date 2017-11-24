@@ -1,6 +1,5 @@
 class ProfilesController < ApplicationController
 	before_action :set_profile, only: [:edit, :update, :show]
-	before_action :authenticate_user!
 
   def index
     @profiles = Profile.all.order(:role, :first_name)
@@ -31,7 +30,7 @@ class ProfilesController < ApplicationController
 			render :edit
 		end
 	end
-	
+
 	def make_admin
 		profile = User.find(params[:id]).profile
 		profile.update( :role => "admin" )
@@ -45,13 +44,16 @@ class ProfilesController < ApplicationController
 	end
 
 	private
-		def set_profile
-			@profile = current_user.profile
-		end
 
-		def profile_params
-			params.require(:profile).permit(:first_name, :last_name, :role)
-		end
+	def set_profile
+		@profile = current_user.profile
+	end
+
+	def profile_params
+		params.require(:profile).permit(:first_name, :last_name, :role)
+	end
+
+
 
 
 end
