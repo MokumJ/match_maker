@@ -37,5 +37,4 @@ class PairsController < ApplicationController
 		end
 	end
 
-
 end
