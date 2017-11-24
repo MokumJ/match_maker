@@ -17,12 +17,12 @@ def create_profiles
  click_button "Save"
 end
 
-describe "see user list" do
+describe "show list of users" do
 
 it "creates profile" do
     sign_in
     create_profiles
-print page.html
+
    find('#navbar').click
    click_on 'User list'
     visit profiles_path

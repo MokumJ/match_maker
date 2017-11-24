@@ -18,7 +18,7 @@
     <%= f.hidden_field :role, value: "user" , class: "form-control" %>
   </div>
   <div class="actions">
-    <%= f.submit "Save", class: "btn btn-primary" %>
+    <%= f.submit "Save", class: "btn btn-primary", :confirm => "Thank you for registering, one of our teachers will contact you with more information" %>
     <%= link_to "Back", new_profile_path, class: "btn btn-default" %>
   </div>
 <% end %>
