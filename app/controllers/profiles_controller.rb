@@ -30,17 +30,17 @@ class ProfilesController < ApplicationController
 
 
   def make_admin
-    profile = Profile.find params[:id]
+    profile = User.find(params[:id]).profile
     profile.update( :role => "admin" )
     redirect_to profiles_url
   end
 
   def make_student
-    profile = Profile.find params[:id]
+		profile = User.find(params[:id]).profile
     profile.update( :role => "student" )
     redirect_to profiles_url
   end
-  
+
   def edit
   end
 
