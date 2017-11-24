@@ -26,7 +26,7 @@ it "creates profile" do
    find('#navbar').click
    click_on 'User list'
     visit profiles_path
-  print page.html
+
     expect(page).to have_text( "Robin  Hood")
     expect(page).to have_text("user")
 
