@@ -8,7 +8,7 @@ class Pairing
 
 	private
 
-	def pairing(students)																			# pass in the argument of array students 
+	def pairing(students)																			# pass in the argument of array students
 		students.push("*RUBBER DUCK*") if students.size.odd?		#adds one more element("*RUBBER DUCK*") to students array if we have odd number of student
 		days = students.size - 1																# number of times round-robin rotates until reaching the original position
 		pairs_of_the_day = students.size / 2										# number of unique possible pairs for each day
