@@ -22,7 +22,7 @@ class ProfilesController < ApplicationController
 			@profile = current_user.build_profile(profile_params)
 
 		if @profile.save
-			redirect_to edit_profile_path(@profile), notice: "Profile successfully created, contact your teacher for more contact"
+			redirect_to root_path, notice: "Profile successfully created, contact your teacher for a confirmation"
 		else
 			render :new
 		end
