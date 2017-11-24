@@ -19,6 +19,6 @@ def sign_in
      fill_in 'Last Name', with: 'Hood'
      click_button "Save"
 
-      expect(page).to have_content 'Profile successfully created, contact your teacher for more contact'
+      expect(page).to have_content 'Profile successfully created, contact your teacher for a confirmation'
     end
   end
