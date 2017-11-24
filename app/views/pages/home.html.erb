@@ -7,7 +7,7 @@
 	<% @pairs_schedule.each do |day| %>
 		<% if day.day <= Date.today %>
 			<% day.pairs.each do |pair| %>
-				<% if pair.include?(current_user.profile.full_name) %>
+				<% if pair.include?(current_user.profile.partial_full_name) %>
 					<tr>
 						<td><%= day.day %></td>
 						<td><%= pair.join(" & ") %></td>
