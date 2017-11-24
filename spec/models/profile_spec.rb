@@ -24,4 +24,8 @@ RSpec.describe Profile, type: :model do
         subject.last_name = nil
         expect(subject).to_not be_valid
       end
+      it "is not valid without a role" do
+        subject.role = nil
+        expect(subject).to_not be_valid
+      end
     end
