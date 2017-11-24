@@ -1,10 +1,10 @@
 <table class="table table-striped table-bordered">
-<% @profiles.each do |profile| %>
-  <tr style="text-align: center;">
-    <td> <%= profile.full_name %></td>
-    <td> <%= profile.role %></td>
-    <td> <%= button_to "Make Admin", {action: "make_admin", data: { confirm: 'Are you sure?' }, id: profile.user.id }, method: :put %></td>
-    <td> <%= button_to "Make student", {action: "make_student", data: { confirm: 'Are you sure?' }, id: profile.user.id }, method: :put %></td>
-  </tr>
-<% end %>
+	<% @profiles.each do |profile| %>
+	  <tr style="text-align: center;">
+	    <td> <%= profile.full_name %></td>
+	    <td> <%= profile.role %></td>
+	    <td> <%= button_to "Make Admin", {action: "make_admin", data: { confirm: 'Are you sure?' }, id: profile.user.id }, method: :put %></td>
+	    <td> <%= button_to "Make student", {action: "make_student", data: { confirm: 'Are you sure?' }, id: profile.user.id }, method: :put %></td>
+	  </tr>
+	<% end %>
 </table>
