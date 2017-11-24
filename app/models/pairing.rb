@@ -10,14 +10,14 @@ class Pairing
 
 	def pairing(students)
 		students.push("No partner today!") if students.size.odd?		#adds one more value if we have odd number of student
-		days = students.size - 1
+		days = students.size - 1							# number of set of possible unique combinations
 		pairs_of_the_day = students.size / 2
 		days.times do |key|
 			@days[key] = []
 			pairs_of_the_day.times do |day_index|
 				@days[key] << [students[day_index], students.reverse[day_index]]
 			end
-			students = [students[0]] + students[1..-1].rotate(-1)
+			students = [students[0]] + students[1..-1].rotate(-1)  #What array.rotate does is put the selected element into the first position
 		end
 	end
 end

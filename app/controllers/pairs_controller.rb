@@ -26,7 +26,6 @@ class PairsController < ApplicationController
 
 	def pairs_params
 		params.require(:pair).permit(:day, :pairs)
-
 	end
 
 	def set_students_array
